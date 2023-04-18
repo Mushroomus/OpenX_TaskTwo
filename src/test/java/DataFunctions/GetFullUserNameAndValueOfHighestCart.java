@@ -94,10 +94,6 @@ public class GetFullUserNameAndValueOfHighestCart {
         );
 
         Map<String, BigDecimal> result = DataFunctions.getFullNameAndValueOfHighestCart(carts, products, users);
-        for (String key : result.keySet()) {
-            BigDecimal value = result.get(key);
-            System.out.println(key + " -> " + value);
-        }
 
         assertEquals(1, result.size());
         assertEquals(new BigDecimal("34.89"), result.get("John Doe"));
@@ -163,10 +159,6 @@ public class GetFullUserNameAndValueOfHighestCart {
         );
 
         Map<String, BigDecimal> result = DataFunctions.getFullNameAndValueOfHighestCart(carts, products, users);
-        for (String key : result.keySet()) {
-            BigDecimal value = result.get(key);
-            System.out.println(key + " -> " + value);
-        }
 
         assertEquals(1, result.size());
         assertEquals(new BigDecimal("34.89"), result.get("John Doe"));

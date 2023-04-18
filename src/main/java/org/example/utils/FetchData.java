@@ -12,8 +12,8 @@ import java.util.List;
 public class FetchData {
     public static <T> List<T> fetchData(String url, Class<T[]> clazz) {
 
-    if(url == null || clazz == null || !(url.equals("https://fakestoreapi.com/users") || url.equals("https://fakestoreapi.com/products") || url.equals("https://fakestoreapi.com/carts")))
-            return null;
+        if(url == null || clazz == null || !(url.equals("https://fakestoreapi.com/users") || url.equals("https://fakestoreapi.com/products") || url.equals("https://fakestoreapi.com/carts")))
+                return null;
 
         try {
             HttpURLConnection conn = (HttpURLConnection) new URL(url).openConnection();
