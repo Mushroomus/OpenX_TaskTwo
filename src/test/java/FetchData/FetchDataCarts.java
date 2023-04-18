@@ -1,9 +1,8 @@
 package FetchData;
 
-import org.example.enitity.Cart;
-import org.example.enitity.CartEntity.Product;
-import org.example.enitity.User;
-import org.example.utils.FetchDataAPI;
+import org.example.cart.Cart;
+import org.example.cart.CartProduct;
+import org.example.utils.FetchData;
 import org.junit.Test;
 
 import java.util.Arrays;
@@ -20,9 +19,9 @@ public class FetchDataCarts {
                         1,
                         "2020-03-02T00:00:00.000Z",
                         Arrays.asList(
-                                new Product(1, 4),
-                                new Product(2, 1),
-                                new Product(3, 6)
+                                new CartProduct(1, 4),
+                                new CartProduct(2, 1),
+                                new CartProduct(3, 6)
                         )
                 ),
                 new Cart(
@@ -30,9 +29,9 @@ public class FetchDataCarts {
                         1,
                         "2020-01-02T00:00:00.000Z",
                         Arrays.asList(
-                                new Product(2, 4),
-                                new Product(1, 10),
-                                new Product(5, 2)
+                                new CartProduct(2, 4),
+                                new CartProduct(1, 10),
+                                new CartProduct(5, 2)
                         )
                 ),
                 new Cart(
@@ -40,8 +39,8 @@ public class FetchDataCarts {
                         2,
                         "2020-03-01T00:00:00.000Z",
                         Arrays.asList(
-                                new Product(1, 2),
-                                new Product(9, 1)
+                                new CartProduct(1, 2),
+                                new CartProduct(9, 1)
                         )
                 ),
                 new Cart(
@@ -49,7 +48,7 @@ public class FetchDataCarts {
                         3,
                         "2020-01-01T00:00:00.000Z",
                         Arrays.asList(
-                                new Product(1, 4)
+                                new CartProduct(1, 4)
                         )
                 ),
                 new Cart(
@@ -57,8 +56,8 @@ public class FetchDataCarts {
                         3,
                         "2020-03-01T00:00:00.000Z",
                         Arrays.asList(
-                                new Product(7, 1),
-                                new Product(8, 1)
+                                new CartProduct(7, 1),
+                                new CartProduct(8, 1)
                         )
                 ),
                 new Cart(
@@ -66,8 +65,8 @@ public class FetchDataCarts {
                         4,
                         "2020-03-01T00:00:00.000Z",
                         Arrays.asList(
-                                new Product(10, 2),
-                                new Product(12, 3)
+                                new CartProduct(10, 2),
+                                new CartProduct(12, 3)
                         )
                 ),
                 new Cart(
@@ -75,12 +74,12 @@ public class FetchDataCarts {
                         8,
                         "2020-03-01T00:00:00.000Z",
                         Arrays.asList(
-                                new Product(18, 1)
+                                new CartProduct(18, 1)
                         )
                 )
         };
 
-        List<Cart> actualCarts = FetchDataAPI.fetchData("https://fakestoreapi.com/carts", Cart[].class);
+        List<Cart> actualCarts = FetchData.fetchData("https://fakestoreapi.com/carts", Cart[].class);
         Cart[] actualCartsArray = actualCarts.toArray(new Cart[actualCarts.size()]);
 
         for (int i = 0; i < expectedCarts.length; i++) {

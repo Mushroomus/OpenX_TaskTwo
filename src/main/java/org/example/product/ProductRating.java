@@ -1,14 +1,14 @@
-package org.example.enitity.productEntity;
+package org.example.product;
 
 import java.util.Objects;
 
-public class Rating {
+public class ProductRating {
     private Double rate;
     private Integer count;
 
-    Rating() {}
+    ProductRating() {}
 
-    public Rating(Double rate, Integer count) {
+    public ProductRating(Double rate, Integer count) {
         this.rate = rate;
         this.count = count;
     }
@@ -18,10 +18,10 @@ public class Rating {
         if (o == this) {
             return true;
         }
-        if (!(o instanceof Rating)) {
+        if (!(o instanceof ProductRating)) {
             return false;
         }
-        Rating other = (Rating) o;
+        ProductRating other = (ProductRating) o;
         return Objects.equals(rate, other.rate) && Objects.equals(count, other.count);
     }
 

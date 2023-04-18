@@ -1,8 +1,7 @@
-package org.example.enitity;
+package org.example.user;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import org.example.enitity.userEntity.Address;
-import org.example.enitity.userEntity.Name;
+
 import java.util.Objects;
 
 @JsonIgnoreProperties(ignoreUnknown = true) // Ignore __v
@@ -11,18 +10,18 @@ public class User {
     private String email;
     private String username;
     private String password;
-    private Name name;
+    private UserName userName;
     private String phone;
-    private Address address;
+    private UserAddress userAddress;
     public User() {}
-    public User(Integer id, String email, String username, String password, Name name, String phone, Address address) {
+    public User(Integer id, String email, String username, String password, UserName userName, String phone, UserAddress userAddress) {
         this.id = id;
         this.email = email;
         this.username = username;
         this.password = password;
-        this.name = name;
+        this.userName = userName;
         this.phone = phone;
-        this.address = address;
+        this.userAddress = userAddress;
     }
 
     @Override
@@ -34,9 +33,14 @@ public class User {
                 && Objects.equals(this.email, other.email)
                 && Objects.equals(this.username, other.username)
                 && Objects.equals(this.password, other.password)
-                && Objects.equals(this.name, other.name)
+                && Objects.equals(this.userName, other.userName)
                 && Objects.equals(this.phone, other.phone)
-                && Objects.equals(this.address, other.address);
+                && Objects.equals(this.userAddress, other.userAddress);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, email, username, password, userName, phone, userAddress);
     }
 
     public Integer getId() {
@@ -71,12 +75,12 @@ public class User {
         this.password = password;
     }
 
-    public Name getName() {
-        return name;
+    public UserName getName() {
+        return userName;
     }
 
-    public void setName(Name name) {
-        this.name = name;
+    public void setName(UserName userName) {
+        this.userName = userName;
     }
 
     public String getPhone() {
@@ -87,11 +91,11 @@ public class User {
         this.phone = phone;
     }
 
-    public Address getAddress() {
-        return address;
+    public UserAddress getAddress() {
+        return userAddress;
     }
 
-    public void setAddress(Address address) {
-        this.address = address;
+    public void setAddress(UserAddress userAddress) {
+        this.userAddress = userAddress;
     }
 }

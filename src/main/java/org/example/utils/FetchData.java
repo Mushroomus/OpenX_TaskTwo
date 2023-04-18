@@ -9,7 +9,7 @@ import java.net.URL;
 import java.util.Arrays;
 import java.util.List;
 
-public class FetchDataAPI {
+public class FetchData {
     public static <T> List<T> fetchData(String url, Class<T[]> clazz) {
 
     if(url == null || clazz == null || !(url.equals("https://fakestoreapi.com/users") || url.equals("https://fakestoreapi.com/products") || url.equals("https://fakestoreapi.com/carts")))

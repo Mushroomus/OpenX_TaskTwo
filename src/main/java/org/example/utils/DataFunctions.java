@@ -1,14 +1,15 @@
 package org.example.utils;
 
-import org.example.enitity.Cart;
-import org.example.enitity.Product;
-import org.example.enitity.User;
+import org.example.cart.Cart;
+import org.example.cart.CartProduct;
+import org.example.product.Product;
+import org.example.user.User;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.*;
 
-public class Functions {
+public class DataFunctions {
     public static Map<String, BigDecimal> getCategoriesTotalValue(List<Product> products) {
         Map<String,BigDecimal> categoriesTotalValue = new HashMap<>();
 
@@ -35,9 +36,9 @@ public class Functions {
         for(Cart cart : carts) {
            BigDecimal totalValue = BigDecimal.valueOf(0);
 
-            for (org.example.enitity.CartEntity.Product product : cart.getProducts()) {
-                BigDecimal price = products.get(product.getProductId() - 1).getPrice();
-                BigDecimal quantity = BigDecimal.valueOf(product.getQuantity());
+            for (CartProduct cartProduct : cart.getProducts()) {
+                BigDecimal price = products.get(cartProduct.getProductId() - 1).getPrice();
+                BigDecimal quantity = BigDecimal.valueOf(cartProduct.getQuantity());
                 totalValue = totalValue.add(price.multiply(quantity));
             }
             totalValue = totalValue.setScale(2, RoundingMode.HALF_UP);

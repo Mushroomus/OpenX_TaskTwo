@@ -1,17 +1,13 @@
 package org.example;
 
-import org.example.enitity.Cart;
-import org.example.enitity.Product;
-import org.example.enitity.User;
-import org.example.utils.FetchDataAPI;
-import org.example.utils.Functions;
+import org.example.cart.Cart;
+import org.example.product.Product;
+import org.example.user.User;
+import org.example.utils.DataFunctions;
 
-import java.math.BigDecimal;
-import java.nio.DoubleBuffer;
 import java.util.List;
-import java.util.Map;
 
-import static org.example.utils.FetchDataAPI.fetchData;
+import static org.example.utils.FetchData.fetchData;
 
 public class Main {
     public static void main(String[] args) {
@@ -53,6 +49,6 @@ public class Main {
         }
          */
 
-        Functions.findFurthestUsers(users);
+        DataFunctions.findFurthestUsers(users);
     }
 }

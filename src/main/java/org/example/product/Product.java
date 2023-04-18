@@ -1,6 +1,4 @@
-package org.example.enitity;
-
-import org.example.enitity.productEntity.Rating;
+package org.example.product;
 
 import java.math.BigDecimal;
 import java.util.Objects;
@@ -12,18 +10,18 @@ public class Product {
     private String description;
     private String category;
     private String image;
-    private Rating rating;
+    private ProductRating productRating;
 
     Product() {}
 
-    public Product(Integer id, String title, BigDecimal price, String description, String category, String image, Rating rating) {
+    public Product(Integer id, String title, BigDecimal price, String description, String category, String image, ProductRating productRating) {
         this.id = id;
         this.title = title;
         this.price = price;
         this.description = description;
         this.category = category;
         this.image = image;
-        this.rating = rating;
+        this.productRating = productRating;
     }
 
     @Override
@@ -41,12 +39,12 @@ public class Product {
                 Objects.equals(description, other.description) &&
                 Objects.equals(category, other.category) &&
                 Objects.equals(image, other.image) &&
-                Objects.equals(rating, other.rating);
+                Objects.equals(productRating, other.productRating);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, title, price, description, category, image, rating);
+        return Objects.hash(id, title, price, description, category, image, productRating);
     }
 
     public Integer getId() {
@@ -97,11 +95,11 @@ public class Product {
         this.image = image;
     }
 
-    public Rating getRating() {
-        return rating;
+    public ProductRating getRating() {
+        return productRating;
     }
 
-    public void setRating(Rating rating) {
-        this.rating = rating;
+    public void setRating(ProductRating productRating) {
+        this.productRating = productRating;
     }
 }

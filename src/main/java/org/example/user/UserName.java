@@ -1,11 +1,13 @@
-package org.example.enitity.userEntity;
+package org.example.user;
 
-public class Name {
+import java.util.Objects;
+
+public class UserName {
     private String firstname;
     private String lastname;
 
-    public Name() {}
-    public Name(String firstname, String lastname) {
+    public UserName() {}
+    public UserName(String firstname, String lastname) {
         this.firstname = firstname;
         this.lastname = lastname;
     }
@@ -15,11 +17,16 @@ public class Name {
         if (obj == this) {
             return true;
         }
-        if (!(obj instanceof Name)) {
+        if (!(obj instanceof UserName)) {
             return false;
         }
-        Name other = (Name) obj;
+        UserName other = (UserName) obj;
         return this.firstname.equals(other.firstname) && this.lastname.equals(other.lastname);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(firstname, lastname);
     }
 
     public String getFirstname() {

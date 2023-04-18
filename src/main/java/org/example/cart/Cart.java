@@ -1,9 +1,7 @@
-package org.example.enitity;
+package org.example.cart;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import org.example.enitity.CartEntity.Product;
 
-import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Objects;
 
@@ -12,15 +10,15 @@ public class Cart {
     private Integer id;
     private Integer userId;
     private String date;
-    private List<Product> products;
+    private List<CartProduct> cartProducts;
 
     Cart() {}
 
-    public Cart(Integer id, Integer userId, String date, List<Product> products) {
+    public Cart(Integer id, Integer userId, String date, List<CartProduct> cartProducts) {
         this.id = id;
         this.userId = userId;
         this.date = date;
-        this.products = products;
+        this.cartProducts = cartProducts;
     }
 
     @Override
@@ -33,12 +31,12 @@ public class Cart {
         return Objects.equals(id, cart.id) &&
                 Objects.equals(userId, cart.userId) &&
                 Objects.equals(date, cart.date) &&
-                Objects.equals(products, cart.products);
+                Objects.equals(cartProducts, cart.cartProducts);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, userId, date, products);
+        return Objects.hash(id, userId, date, cartProducts);
     }
 
     public Integer getId() {
@@ -65,11 +63,11 @@ public class Cart {
         this.date = date;
     }
 
-    public List<Product> getProducts() {
-        return products;
+    public List<CartProduct> getProducts() {
+        return cartProducts;
     }
 
-    public void setProducts(List<Product> products) {
-        this.products = products;
+    public void setProducts(List<CartProduct> cartProducts) {
+        this.cartProducts = cartProducts;
     }
 }

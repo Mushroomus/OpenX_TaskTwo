@@ -1,16 +1,17 @@
-package org.example.enitity.userEntity;
+package org.example.user;
+
 import java.util.Objects;
 
-public class Address {
-    private Geolocation geolocation;
+public class UserAddress {
+    private UserGeolocation userGeolocation;
     private String city;
     private String street;
     private Integer number;
     private String zipcode;
 
-    public Address() {}
-    public Address(Geolocation geolocation, String city, String street, Integer number, String zipcode) {
-        this.geolocation = geolocation;
+    public UserAddress() {}
+    public UserAddress(UserGeolocation userGeolocation, String city, String street, Integer number, String zipcode) {
+        this.userGeolocation = userGeolocation;
         this.city = city;
         this.street = street;
         this.number = number;
@@ -23,25 +24,30 @@ public class Address {
             return true;
         }
 
-        if (!(obj instanceof Address)) {
+        if (!(obj instanceof UserAddress)) {
             return false;
         }
 
-        Address other = (Address) obj;
+        UserAddress other = (UserAddress) obj;
 
-        return Objects.equals(this.geolocation, other.geolocation)
+        return Objects.equals(this.userGeolocation, other.userGeolocation)
                 && Objects.equals(this.city, other.city)
                 && Objects.equals(this.street, other.street)
                 && Objects.equals(this.number, other.number)
                 && Objects.equals(this.zipcode, other.zipcode);
     }
 
-    public Geolocation getGeolocation() {
-        return geolocation;
+    @Override
+    public int hashCode() {
+        return Objects.hash(userGeolocation, city, street, number, zipcode);
     }
 
-    public void setGeolocation(Geolocation geolocation) {
-        this.geolocation = geolocation;
+    public UserGeolocation getGeolocation() {
+        return userGeolocation;
+    }
+
+    public void setGeolocation(UserGeolocation userGeolocation) {
+        this.userGeolocation = userGeolocation;
     }
 
     public String getCity() {

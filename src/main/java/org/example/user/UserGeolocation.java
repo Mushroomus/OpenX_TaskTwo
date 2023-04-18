@@ -1,14 +1,14 @@
-package org.example.enitity.userEntity;
+package org.example.user;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.Objects;
 
-public class Geolocation {
+public class UserGeolocation {
     private String lat;
     @JsonProperty("long")
     private String longitude;
-    public Geolocation() {}
-    public Geolocation(String lat, String longitude) {
+    public UserGeolocation() {}
+    public UserGeolocation(String lat, String longitude) {
         this.lat = lat;
         this.longitude = longitude;
     }
@@ -17,8 +17,13 @@ public class Geolocation {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Geolocation that = (Geolocation) o;
+        UserGeolocation that = (UserGeolocation) o;
         return Objects.equals(lat, that.lat) && Objects.equals(longitude, that.longitude);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(lat, longitude);
     }
 
     public String getLat() {

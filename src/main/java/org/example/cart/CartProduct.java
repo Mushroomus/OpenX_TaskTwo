@@ -1,14 +1,14 @@
-package org.example.enitity.CartEntity;
+package org.example.cart;
 
 import java.util.Objects;
 
-public class Product {
+public class CartProduct {
     private Integer productId;
     private Integer quantity;
 
-    public Product() {}
+    public CartProduct() {}
 
-    public Product(Integer productId, Integer quantity) {
+    public CartProduct(Integer productId, Integer quantity) {
         this.productId = productId;
         this.quantity = quantity;
     }
@@ -21,7 +21,7 @@ public class Product {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Product that = (Product) o;
+        CartProduct that = (CartProduct) o;
         return Objects.equals(productId, that.productId) &&
                 Objects.equals(quantity, that.quantity);
     }
