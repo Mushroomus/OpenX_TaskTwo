@@ -26,6 +26,9 @@ public class Functions {
     public static Map<String, BigDecimal> getFullNameAndValueOfHighestCart(List<Cart> carts, List<Product> products, List<User> users) {
         Map<String, BigDecimal> result = new HashMap<>();
 
+        if(carts.isEmpty() || products.isEmpty() || users.isEmpty())
+            return result;
+
         BigDecimal highestTotalValue = BigDecimal.valueOf(0);
         Integer highestCartId = -1;
 
@@ -45,7 +48,7 @@ public class Functions {
             }
         }
 
-        String highestTotalValueName = users.get(carts.get(highestCartId).getUserId() - 1).getName().toString();
+        String highestTotalValueName = users.get(carts.get(highestCartId - 1).getUserId() - 1).getName().toString();
         result.put(highestTotalValueName, highestTotalValue);
         return result;
     }
@@ -67,7 +70,14 @@ public class Functions {
         return BigDecimal.valueOf(distance_km);
     }
 
+
     public static void findFurthestUsers(List<User> users) {
+
+        if(users.size() < 2) {
+            System.out.println("There are not enough users to find furthest users");
+            return;
+        }
+
         Map<List<User>, BigDecimal> distances = new HashMap<>();
         for (int i = 0; i < users.size(); i++) {
             for (int j = i + 1; j < users.size(); j++) {
